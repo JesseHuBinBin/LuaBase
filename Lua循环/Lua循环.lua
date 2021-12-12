@@ -1,47 +1,26 @@
--- [[Lua å¾ªçŽ¯]]--
--- å¾ˆå¤šæƒ…å†µä¸‹æˆ‘ä»¬éœ€è¦åšä¸€äº›æœ‰è§„å¾‹çš„é‡å¤æ“ä½œï¼Œå› æ­¤åœ¨ç¨‹åºä¸­å°±éœ€è¦é‡å¤æ‰§è¡ŒæŸäº›è¯­å¥ã€?
--- Luaè¯­è¨€æä¾›äº†ä»¥ä¸‹å‡ ç§å¾ªçŽ¯å¤„ç†æ–¹å¼ï¼š
--- while å¾ªçŽ¯               åœ¨æ¡ä»¶ä¸ºtrueæ—¶ï¼Œè®©ç¨‹åºé‡å¤æ‰§è¡ŒæŸäº›è¯­å?
--- for å¾ªçŽ¯                 é‡å¤æ‰§è¡ŒæŒ‡å®šè¯­å¥ï¼Œé‡å¤æ¬¡æ•°å¯åœ¨forè¯­å¥ä¸­æŽ§åˆ?
--- repeat...until           é‡å¤æ‰§è¡Œå¾ªçŽ¯ï¼Œç›´åˆ°æŒ‡å®šæ¡ä»¶ä¸ºçœŸä¸ºæ­?
--- åµŒå¥— å¾ªçŽ¯                 å¯ä»¥åœ¨å¾ªçŽ¯å†…åµŒå¥—ä¸€ä¸ªæˆ–è€…å¤šä¸ªå¾ªçŽ¯è¯­å¥ï¼ˆwhile do...end;for...do...end;repeat...until;ï¼?
--- å¾ªçŽ¯æŽ§åˆ¶è¯­å¥
--- å¾ªçŽ¯æŽ§åˆ¶è¯­å¥ç”¨äºŽæŽ§åˆ¶ç¨‹åºçš„æµç¨‹ï¼Œä»¥å®žçŽ°ç¨‹åºçš„å„ç§ç»“æž„æ–¹å¼ã€?
--- Luaæ”¯æŒä¸€ä¸‹çš„å¾ªçŽ¯æŽ§åˆ¶è¯­å¥
--- breakè¯­å¥      é€€å‡ºå½“å‰å¾ªçŽ¯æˆ–è¯­å¥ï¼Œå…µå¼€å§‹è„šæœ¬æ‰§è¡Œç´§æŽ¥ç€çš„è¯­å?
--- gotoè¯­å¥       å°†ç¨‹åºçš„æŽ§åˆ¶ç‚¹è½¬ç§»åˆ°ä¸€ä¸ªæ ‡ç­¾å¤„
--- æ— é™å¾ªçŽ¯
--- åœ¨å¾ªçŽ¯ä½“é‡å¦‚æžœæ¡ä»¶æ°¸è¿œä¸ºtrueå¾ªçŽ¯è¯­å¥å°±ä¼šæ°¸è¿œæ‰§è¡Œä¸‹åŽ»ï¼Œä»¥ä¸‹whileå¾ªçŽ¯ä¸ºä¾‹ï¼?
--- while(true)
--- do
---     print("å¾ªçŽ¯æ°¸è¿œæ‰§è¡Œä¸‹åŽ»")
--- end
--- å¯ä»¥ä½¿ç”¨ç±»ä¼¼ä¸‹é¢è¿™ç§æ–¹æ³•å®žçŽ° continue è¯­å¥ï¼?
--- for i = 1, 10, -1 do
---     repeat
---         if i==5 then
---             break
---         end
---         print(i,"loop code here")
---     until true
--- end
--- continueå¯ä»¥ç”¨goto
--- for i = 1, 3 do
---     if i<=2 then
---         print(i,"yes continue")
---         goto continue
--- end
--- print(i,"no continue")
--- ::continue::
--- print([[i` end]])
--- end
--- if else å°±èƒ½å®Œæˆcontinueè¯­å¥
--- for i = 1, 3 do
---     print(i)
---     if i<=2 then
---         print("continue the loop")
---     else
---         print("loop area")
---     end
---     print("end of loop")
--- end
+--[[
+    Lua Ñ­»·
+--]]
+-- ºÜ¶àÇé¿öÏÂÎÒÃÇÐèÒª×öÒ»Ð©ÓÐ¹æÂÉÐÔµÄÖØ¸´²Ù×÷£¬Òò´ËÔÚ³ÌÐòÖÐ¾ÍÐèÒªÖØ¸´Ö´ÐÐÄ³Ð©Óï¾ä¡£
+-- Ò»×é±»ÖØ¸´Ö´ÐÐµÄÓï¾ä³ÆÖ®ÎªÑ­»·Ìå£¬ÄÜ·ñ¼ÌÐøÖØ¸´£¬¾ö¶¨Ñ­»·µÄÖÕÖ¹Ìõ¼þ¡£
+-- Ñ­»·½á¹¹ÊÇÔÚÒ»¶¨Ìõ¼þÏÂ·´¸´Ö´ÐÐÄ³¶Î³ÌÐòµÄÁ÷³Ì½á¹¹£¬±»·´¸´Ö´ÐÐµÄ³ÌÐò±»³ÆÎªÑ­»·Ìå¡£
+-- Ñ­»·Óï¾äÊÇÓÉÑ­»·Ìå¼°Ñ­»·µÄÖÕÖ¹Ìõ¼þÁ½²¿·Ö×é³ÉµÄ¡£
+
+--[[ Lua ÓïÑÔÌá¹©ÁËÒÔÏÂ¼¸ÖÖÑ­»·´¦Àí·½Ê½£º ]]
+-- Ñ­»·ÀàÐÍ	         ÃèÊö
+-- while Ñ­»·	         ÔÚÌõ¼þÎª true Ê±£¬ÈÃ³ÌÐòÖØ¸´µØÖ´ÐÐÄ³Ð©Óï¾ä¡£Ö´ÐÐÓï¾äÇ°»áÏÈ¼ì²éÌõ¼þÊÇ·ñÎª true¡£
+-- for Ñ­»·	         ÖØ¸´Ö´ÐÐÖ¸¶¨Óï¾ä£¬ÖØ¸´´ÎÊý¿ÉÔÚ for Óï¾äÖÐ¿ØÖÆ¡£
+-- repeat...until	     ÖØ¸´Ö´ÐÐÑ­»·£¬Ö±µ½ Ö¸¶¨µÄÌõ¼þÎªÕæÊ±ÎªÖ¹
+-- Ñ­»·Ç¶Ì×	         ¿ÉÒÔÔÚÑ­»·ÄÚÇ¶Ì×Ò»¸ö»ò¶à¸öÑ­»·Óï¾ä£¨while do ... end;for ... do ... end;repeat ... until;£©
+
+--[[ Ñ­»·¿ØÖÆÓï¾ä ]]
+-- ¿ØÖÆÓï¾ä	ÃèÊö
+-- break Óï¾ä	ÍË³öµ±Ç°Ñ­»·»òÓï¾ä£¬²¢¿ªÊ¼½Å±¾Ö´ÐÐ½ô½Ó×ÅµÄÓï¾ä¡£
+-- goto Óï¾ä	½«³ÌÐòµÄ¿ØÖÆµã×ªÒÆµ½Ò»¸ö±êÇ©´¦¡£
+
+--[[ ÎÞÏÞÑ­»· ]]
+-- ÔÚÑ­»·ÌåÖÐÈç¹ûÌõ¼þÓÀÔ¶Îª true Ñ­»·Óï¾ä¾Í»áÓÀÔ¶Ö´ÐÐÏÂÈ¥£¬ÒÔÏÂÒÔ while Ñ­»·ÎªÀý£º
+while( true )
+do
+   print("Ñ­»·½«ÓÀÔ¶Ö´ÐÐÏÂÈ¥")
+end

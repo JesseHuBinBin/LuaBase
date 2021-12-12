@@ -1,120 +1,49 @@
---[[ Lua 函数 ]]
--- 在Lua中，函数是对语句和表达式进行抽象的主要方法。既可以用来处理一下特殊的工作，也可以用来计算一些值�?
--- Lua提供了许多内建函数，可以很方便的在程序中调用他们，如print()函数可以将传入的参数打印到控制台上�?
--- Lua函数主要有两种用途：
--- 1:完成指定的任�?
--- 2:计算并返回值，这种情况下函数作为赋值语句的表达式作�?
--- [[函数的定义]]
--- Lua编程语言函数定义格式如下�?
--- optional_function_scope function function_name(argument1,argument2,argument3...,argumentn)
+--[[
+    Lua ����
+--]]
+-- ��Lua�У������Ƕ����ͱ���ʽ���г������Ҫ�������ȿ�����������һЩ����Ĺ�����Ҳ������������һЩֵ��
+-- Lua �ṩ��������ڽ�����������Ժܷ�����ڳ����е������ǣ���print()�������Խ�����Ĳ�����ӡ�ڿ���̨�ϡ�
+-- Lua ������Ҫ��������;��
+-- 1.���ָ����������������º�����Ϊ�������ʹ�ã�
+-- 2.���㲢����ֵ����������º�����Ϊ��ֵ���ı���ʽʹ�á�
+
+--[[ �������� ]]
+-- Lua ������Ժ��������ʽ���£�
+-- optional_function_scope function function_name( argument1, argument2, argument3..., argumentn)
 --     function_body
 --     return result_params_comma_separated
 -- end
--- 解析�?
--- open_function_scope:该参数是可选的制定函数是全局函数还是局部函数，未设置该参数默认为全局函数，如果你需�?
--- 设置函数为局部函数需要使用关键字local�?
--- function_name:制定函数的名字�?
--- argument1,argument2,argument3,argumentn:函数的参数，多个参数以逗号隔开，函数可以可以不带参�?
--- function_body:函数体，函数中需要执行的代码语句块�?
--- result_params_comma_separated:函数返回值，Lua语言函数可以返回多个值，每个以逗号隔开�?
--- 实例�?
--- 以下实例定义了函数max()，参数为num1，num2，用于比较两个值得大小，并返回最大值：
--- 函数返回两个值得最大�?
--- function max(num1,num2)
---     if num1>num2 then
---         result=num1
---     else
---         result=num2
---     end
---     return result
--- end
--- print("两值比较最大值为",max(4,4))
--- Lua中我们可以将函数做参数传递给函数
--- myprint=function(param)
---     print("这是打印函数-  ##",param,"##")
--- end
--- function add(num1,num2,functionPrint)
---     result =num1+num2  -- 调用传递的函数参数
---     functionPrint(result)
--- end
--- myprint(10)   --myprint 函数作为参数传�?
--- add(2,5,myprint)
---[[ 多返回�? ]]
--- Lua函数可以返回多个结果值，比如string.find，其返回pi匹配串“开始和结束的下标”（如果批存在匹配串返回nil）�?
--- s,e=string.find("www.runoob.com","runoob")
--- print(s,e)
--- Lua函数中，在return后列出要返回的值的列表即可返回多值，如：
--- function maxinum(a)
---     local mi = 1
---     local m = a[mi]
---     for i, val in ipairs(a) do
---         if val>m then
---             mi=i
---             m=val
---        end
---     end
---     return m,mi
--- end
--- print(maxinum({8,10,23,12,5}))
---[[ 可变参数 ]]
--- Lua函数可以接受可变数目的参数，和C语言类似，在函数参数列表中使用三�?...表示函数有可变参数�?
--- function add(...)
---     local s=0
---     for i, v in ipairs{...} do    -->{...}表示一个由所有变长参数构成的数组
---         s=s+v
---     end
---     return s
--- end
--- print(add(3,4,5,6,7))
--- 我们可以将可变参数赋值给一个变量�?
--- 例如，我们计算几个数的平均值：
--- function average(...)
---     result = 0
---     local arg={...}     -->arg为一个表，局部变�?
---     for i, v in ipairs(arg) do
---         result=result+v
---     end
---     print("总共传入" .. #arg .. "个数")
---     return result/#arg
--- end
--- print("平均值为�?",average(10,5,3,4,5,6,7,8,9,10))
--- 我们也可以通过select("#",...)来获取可变参数的数量:
--- function average(...)
---     result=0
---     local arg={...}
---     for i, v in ipairs(arg) do
---         result=result+v
---     end
---     print("总共传入"..select("#",...).."个数")
---     return result/select("#",...)
--- end
--- print("平均值为",average(10,5,3,4,5,6))
--- 有时候我们可能需要几个固定的参数加上可变参数，固定参数必须放在变长参数之前：
--- function fwrite(fmt,...)    -->固定的参数fmt
---     return io.write(string.format(fmt,...))
--- end
--- fwrite("runoob\n")         --->fmt="runoob",没有变长参数
--- fwrite("%d%d\n", 1,2)      --->fmt="%d%d",变长参数�?1�?2
--- 通常在遍历变长参数的时候只需要使用{...}，然而变长参数可以会包括一些nil，那么就可以�?
--- select函数来访问变长参数了：select('#',...)或者select(n,...)
---    select('n',...)返回可变参数的长�?
---    select(n,...)用于返回从起点n开始到结束位置的所有参数列�?
--- 调用select时，必须传入一个固定实参selector（选择开关）和一系列变长参数。如果selector
--- 为数字n，那么select返回参数列表中从索引n开始到结束位置的所有参数列表，否则只能为字符串
--- #，这样select返回变长参数的总和�?
--- function f(...)
---     a=select('3',...)
---     print(a)
---     print(select(3,...))
--- end
--- f(0,1,2,3,4,5)
--- 实例
--- do
---     function foo(...)
---         for i = 1, select('#',...) do -->获取参数总数
---             local arg=select(i,...)   -->读取参数.org对应的是右边变量列表的第一个参�?
---             print("arg",arg)
---         end
---     end
---     foo(1,2,3,4)
--- end
+
+--[[ ������ ]]
+-- ��optional_function_scope: �ò����ǿ�ѡ���ƶ�������ȫ�ֺ������Ǿֲ�������δ���øò���Ĭ��Ϊȫ�ֺ������������Ҫ���ú���Ϊ�ֲ�������Ҫʹ�ùؼ��� local��
+-- ��function_name: ָ���������ơ�
+-- ��argument1, argument2, argument3..., argumentn: ������������������Զ��Ÿ���������Ҳ���Բ���������
+-- ��function_body: �����壬��������Ҫִ�еĴ������顣
+-- ��result_params_comma_separated: ��������ֵ��Lua���Ժ������Է��ض��ֵ��ÿ��ֵ�Զ��Ÿ�����
+
+-- ����ʵ�������˺��� max()������Ϊ num1, num2�����ڱȽ���ֵ�Ĵ�С�����������ֵ��
+--[[ ������������ֵ�����ֵ --]]
+function max(num1, num2)
+    if (num1 > num2) then
+        result = num1
+    else
+        result = num2
+    end
+    return result
+end
+-- ���ú���
+print("��ֵ�Ƚ����ֵΪ ", max(10, 4))
+print("��ֵ�Ƚ����ֵΪ ", max(5, 6))
+
+-- Lua �����ǿ��Խ�������Ϊ�������ݸ�����������ʵ����
+myprint = function(param)
+    print("���Ǵ�ӡ���� -   ##",param,"##")
+end
+
+function add(num1,num2,functionPrint)
+    result = num1 + num2
+    functionPrint(result)-- ���ô��ݵĺ�������
+end
+myprint(10)
+-- myprint ������Ϊ��������
+add(2,5,myprint)

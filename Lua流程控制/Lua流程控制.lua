@@ -1,14 +1,17 @@
--- Luaæµç¨‹æŽ§åˆ¶
--- Luaç¼–ç¨‹è¯­è¨€æµç¨‹æŽ§åˆ¶è¯­å¥é€šè¿‡ç¨‹åºè°å®šä¸€ä¸ªæˆ–å¤šä¸ªæ¡ä»¶è¯­å¥æ¥è®¾å®šã€‚åœ¨æ¡ä»¶ä¸ºtrueæ—¶æ‰§è¡ŒæŒ‡å®šç¨‹åº?
--- ä»£ç ï¼Œåœ¨æ¡ä»¶ä¸ºfalseæ—¶æ‰§è¡Œå…¶ä»–æŒ‡å®šä»£ç ã€?
--- æŽ§åˆ¶ç»“æž„çš„æ¡ä»¶è¡¨è¾¾å¼ç»“æžœå¯ä»¥æ˜¯ä»»ä½•å€¼ï¼ŒLuaè®¤ä¸ºfalseå’Œnilä¸ºå‡ï¼Œtrueå’Œéžnilä¸ºçœŸã€?
--- æ³¨æ„ï¼šLuaä¸?0ä¸ºture
---[[0ä¸ºtrue]]
---
--- if (0) then
---     print("0ä¸ºtrue")
--- end
--- Luaæä¾›äº†ä¸€ä¸‹æŽ§åˆ¶ç»“æž„çš„è¯­å¥
--- ifè¯­å¥        ifè¯­å¥æ˜¯æœ‰ä¸€ä¸ªå¸ƒå°”è¡¨è¾¾å¼ä½œä¸ºæ¡ä»¶åˆ¤æ–­ï¼Œå…¶åŽç´§è·Ÿå…¶å®ƒè¯­å¥ç»„æˆ?
--- if..elseè¯­å¥  ifè¯­å¥å¯ä»¥ä¸Želseè¯­å¥æ­é…ä½¿ç”¨ï¼Œåœ¨ifæ¡ä»¶è¡¨è¾¾å¼ä¸ºfalseæ—¶æ‰§è¡Œelseè¯­å¥ä»£ç 
--- ifåµŒå¥—è¯­å¥     ä½ å¯ä»¥åœ¨if æˆ–è€…esle ifä¸­å›½ä½¿ç”¨ä¸€ä¸ªæˆ–å¤šä¸ªifæˆ–else ifè¯­å¥
+--[[
+    Lua Á÷³Ì¿ØÖÆ
+--]]
+-- Lua ±à³ÌÓïÑÔÁ÷³Ì¿ØÖÆÓï¾äÍ¨¹ý³ÌÐòÉè¶¨Ò»¸ö»ò¶à¸öÌõ¼þÓï¾äÀ´Éè¶¨¡£ÔÚÌõ¼þÎª true Ê±Ö´ÐÐÖ¸¶¨³ÌÐò´úÂë£¬ÔÚÌõ¼þÎª false Ê±Ö´ÐÐÆäËûÖ¸¶¨´úÂë¡£.
+-- ¿ØÖÆ½á¹¹µÄÌõ¼þ±í´ïÊ½½á¹û¿ÉÒÔÊÇÈÎºÎÖµ£¬LuaÈÏÎªfalseºÍnilÎª¼Ù£¬trueºÍ·ÇnilÎªÕæ¡£
+-- Òª×¢ÒâµÄÊÇLuaÖÐ 0 Îª true£º
+--[ 0 Îª true ]
+if(0)
+then
+    print("0 Îª true")
+end
+
+--[[ Lua Ìá¹©ÁËÒÔÏÂ¿ØÖÆ½á¹¹Óï¾ä£º ]]
+-- Óï¾ä	               ÃèÊö
+-- if Óï¾ä	           if Óï¾ä ÓÉÒ»¸ö²¼¶û±í´ïÊ½×÷ÎªÌõ¼þÅÐ¶Ï£¬Æäºó½ô¸úÆäËûÓï¾ä×é³É¡£
+-- if...else Óï¾ä	   if Óï¾ä ¿ÉÒÔÓë else Óï¾ä´îÅäÊ¹ÓÃ, ÔÚ if Ìõ¼þ±í´ïÊ½Îª false Ê±Ö´ÐÐ else Óï¾ä´úÂë¡£
+-- if Ç¶Ì×Óï¾ä	       Äã¿ÉÒÔÔÚif »ò else ifÖÐÊ¹ÓÃÒ»¸ö»ò¶à¸ö if »ò else if Óï¾ä ¡£
