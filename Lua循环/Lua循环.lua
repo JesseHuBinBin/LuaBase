@@ -1,0 +1,52 @@
+-- [[Lua 循环]]--
+-- 很多情况下我们需要做一些有规律的重复操作，因此在程序中就需要重复执行某些语句。
+-- Lua语言提供了以下几种循环处理方式：
+-- while 循环               在条件为true时，让程序重复执行某些语句
+-- for 循环                 重复执行指定语句，重复次数可在for语句中控制
+-- repeat...until           重复执行循环，直到指定条件为真为止
+-- 嵌套 循环                 可以在循环内嵌套一个或者多个循环语句（while do...end;for...do...end;repeat...until;）
+
+-- 循环控制语句
+-- 循环控制语句用于控制程序的流程，以实现程序的各种结构方式。
+-- Lua支持一下的循环控制语句
+-- break语句      退出当前循环或语句，兵开始脚本执行紧接着的语句
+-- goto语句       将程序的控制点转移到一个标签处
+
+-- 无限循环
+-- 在循环体重如果条件永远为true循环语句就会永远执行下去，以下while循环为例：
+-- while(true)
+-- do
+--     print("循环永远执行下去")
+-- end
+
+-- 可以使用类似下面这种方法实现 continue 语句：
+-- for i = 1, 10, -1 do
+--     repeat
+--         if i==5 then
+--             break
+--         end
+--         print(i,"loop code here")
+--     until true
+-- end
+
+-- continue可以用goto
+-- for i = 1, 3 do
+--     if i<=2 then
+--         print(i,"yes continue")
+--         goto continue
+-- end
+-- print(i,"no continue")
+-- ::continue::
+-- print([[i` end]])
+-- end
+
+-- if else 就能完成continue语句
+-- for i = 1, 3 do
+--     print(i)
+--     if i<=2 then
+--         print("continue the loop")
+--     else
+--         print("loop area")
+--     end
+--     print("end of loop")
+-- end
