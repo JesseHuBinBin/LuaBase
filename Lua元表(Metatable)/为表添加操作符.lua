@@ -8,26 +8,30 @@
 function table_maxn(t)
     local mn = 0
     for k, v in pairs(t) do
-        if mn<k then
-            mn=k
+        if mn < k then
+            mn = k
         end
     end
     return mn
 end
 
 -- 两表相加操作
-mytable=setmetatable({1,2,3},{
-    __add=function(mytable,newtable)
-        for i = 1, table_maxn(newtable) do
-            table.insert(mytable,table_maxn(mytable)+1,newtable[i])
+mytable =
+    setmetatable(
+    {1, 2, 3},
+    {
+        __add = function(mytable, newtable)
+            for i = 1, table_maxn(newtable) do
+                table.insert(mytable, table_maxn(mytable) + 1, newtable[i])
+            end
+            return mytable
         end
-        return mytable
-    end
-})
-secondtable={4,5,6}
-mytable = mytable+secondtable
+    }
+)
+secondtable = {4, 5, 6}
+mytable = mytable + secondtable
 for k, v in ipairs(mytable) do
-    print(k,v)
+    print(k, v)
 end
 -- __add键包含在元表中，并且进行相加操作。表中对应的操作列表如下：（注意：__是两个下划线）
 -- 模式          描述

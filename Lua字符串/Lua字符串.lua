@@ -27,7 +27,6 @@
 -- \0              空字符（NULL）                                000
 -- \ddd            1到3位八进制数所代表的任意字符                   三位八进制
 -- \xhh            1到2位十六进制所代表的任意字符                   二位十六进制
-
 --[[ 字符串操作 ]]
 -- 1 sring.upper(argument)-->字符串全部转为大写字母
 -- 2 string.lower(argument)--->字符串全部转为小写字母
@@ -55,7 +54,6 @@
 -- 实例
 -- print(string.match("I have 2 question for you.","%d+ %a+"))
 -- print(string.format("%d, %q",string.match("I have 2 questions for you.","(%d+) (%a+)")))
-
 --[[ 字符串截取 ]]
 -- 字符串截取用sub()方法
 -- string.sub()用于截取字符串，原型为：string.sub(s,i[,j])
@@ -75,18 +73,15 @@
 -- print("\n第三次截取",string.format("%q", third_sub))
 -- local fourth_sub = string.sub(sourcestr , -100)--索引越界，输出原始字符串
 -- print("\n第四次截取",string.format("%q" , fourth_sub))
-
 --[[ 字符串大小写转换 ]]
 -- string1="Lua"
 -- print(string.upper(string1))
 -- print(string.lower(string1))
-
 --[[ 字符串查找与反转 ]]
 -- reverseStr="Lua Tutorial"--查找字符串
 -- print(string.find(reverseStr, "Tutorial"))
 -- reversedString=string.reverse(reverseStr)
 -- print("新字符为",reversedString)
-
 --[[ 字符串格式化 ]]
 -- Lua提供了string.format()函数来生成具有特定格式的字符串，函数的第一个参数是格式，之后是对应个格式中每个代号的各种数据，由于格式字符串的存在，使得产生的长字符串可读性大大提高了。这个函数的格式很像C语言中的printf()。格式字符串可能包含以下的转义码：
 -- %c-接受一个数字，并将其z转化为ASCII码中对应的字符
@@ -115,7 +110,6 @@
 -- date=2;month=1;year=2014-- 日期格式化
 -- print(string.format("日期格式化 %02d%02d%03d", date,month,year))
 -- print(string.format("%.4f", 1/3))-- 十进制格式化
-
 --[[ 其它例子 ]]
 -- print(string.format("%c", 83))
 -- print(string.format("%+d", 17.0))
@@ -131,7 +125,6 @@
 -- print(string.format("%s", "monkey"))
 -- print(string.format("%10s","monkey"))
 -- print(string.format("%5.3s","monkey"))
-
 --[[ 字符与整数相互转化 ]]
 -- 字符转化
 -- print(string.byte("Lua"))-- 转换第一个字符
@@ -140,7 +133,6 @@
 -- print(string.byte("Lua",2))-- 转换第二个字符
 -- print(string.byte("Lua",-2))-- 转换末尾第二个字符
 -- print(string.char("97"))-- 整数ASCII码转换为字符
-
 --[[ 其它常用函数 ]]
 -- 一下实例演示了其它字符串操作，如计算字符串长度，字符串连接，字符串复制等：
 -- string1="www."
@@ -149,7 +141,6 @@
 -- print("l连接字符串",string1..string2..string3)-- 使用..进行字符串连接
 -- print("字符串长度",string.len(string2))-- 字符串长度
 -- print(string.rep(string2, 2))-- 字符串复制2次
-
 --[[ 匹配模式 ]]
 -- Lua中的匹配模式直接用常规的字符串来描述。它用于模式匹配函数string.find,string.gmatch,string.gsub,string.match。
 -- 你还可以在模式串中使用字符类。

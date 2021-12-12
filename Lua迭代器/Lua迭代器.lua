@@ -25,7 +25,6 @@
 -- 在Lua中我们常常使用函数来描述迭代器，每次调用该函数就返回集合的下一个元素。在Lua的迭代器包含以下两种类型：
 -- 无状态的迭代器
 -- 多状态的迭代器
-
 --[[ 无状态的迭代器 ]]
 -- 无状态的迭代器是指不保留任何状态的迭代器，因此在循环中我们可以利用无状态迭代器避免创建闭包话费额外的代价。
 -- 每一次迭代，迭代函数都是用两个变量（状态常量和控制变量）的值左右参数被调用，一个武装的迭代器只利用这个两个值可以获取下一个元素。
@@ -53,7 +52,6 @@
 -- end
 -- 在Lua中调用ipairs(a)开始循环时，他获取三个值：迭代函数iter，状态常量a，控制变量初始值0；
 -- 然后Lua调用iter(a,0),返回1,a[1]（除非a[1]=nil）;第二季迭代器调用iter(a,1)返回2，a[2]......直到第一个nil元素。
-
 --[[ 多状体迭代器 ]]
 -- 很多情况下迭代器需要保存多个状态信息而不是简单的状态常量和控制变量，j最简单的方法就是使用闭包，还有一种方法就是将所有的状态信息封装到table内，
 -- 将table作为迭代器的状态常量，因为这种情况下可以将所有的信息存放在table内，所以迭代函数通常不需要第二个参数；
@@ -77,7 +75,6 @@
 --     print(element)
 --  end
 -- 以上实例中我们可以看到，elementIterator内使用了闭包函数，实现计算集合大小并输出各个元素。
-
 --[[ pairs和ipairs区别 ]]
 -- ·pairs：迭代table，可以遍历表中所有的key可以返回nil
 -- ·ipairs：迭代数组，不能返回nil，如果遇到nil则退出
@@ -92,7 +89,6 @@
 -- for index, value in ipairs(tab) do
 --     print(index)   --输出"a",k=2时断开
 -- end
-
 --[[ pairs和ipairs异同 ]]
 -- 同：都是能遍历集合（表，数组）
 -- 异：ipairs仅仅遍历值，按照索引升序遍历，索引中断停止遍历。不能返回nil，只能返回数字0，如果遇到nil则退出。它只能遍历到集合中出现的第一个不是整数的Key。
@@ -137,7 +133,6 @@
 -- for i, v in pairs(tabFiles) do--全部输出
 --      print(i,v)
 -- end
-
 --[[ 字符串分割函数 ]]
 -- function split(str,delimiter)
 --     local dLen = string.len(delimiter)
@@ -162,12 +157,10 @@
 --     end
 --     return arr
 -- end
-
 -- t=split("php,js", ",")
 -- for k, v in ipairs(t) do
 --     print(k,v)
 -- end
-
 --[[ 泛型for在迭代的时候每次调用的都是闭包函数，迭代函数只是开始的时候调用一次。 ]]
 -- function eleiter(t)
 --     local index=0
@@ -182,7 +175,6 @@
 -- for ele in eleiter(t) do
 --     print(ele)
 -- end
-
 --[[ 泛for内维持3个要素 ]]
 -- ·1：迭代函数本身，如pairs(tab)
 -- ·2：迭代函数的状态常量，如tab
@@ -196,21 +188,18 @@
 --        return i, v
 --     end
 -- end
-
 -- function ipairss (a)
 --     i=0;
 --    while(true) do
---         k,v=iter(a,i) 
+--         k,v=iter(a,i)
 --         if k=nil then
 --            break;
 --        end
 -- end
-
 -- t={"asdf1","asdf2","asdf3","asdf4"}
 -- for k,v in ipairss(t) do  //--内部维持iter,t,i三个要素,其中i隐含--这是我的理解
 --     print(k,v)
 -- end
-
 --[[ pairs和ipairs的另外一个区别 ]]
 -- ·ipairs迭代是会略过非数值的索引
 -- ·pairs迭代不会略过非数值的索引

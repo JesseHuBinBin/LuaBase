@@ -4,7 +4,6 @@
 -- Lua函数主要有两种用途：
 -- 1:完成指定的任�?
 -- 2:计算并返回值，这种情况下函数作为赋值语句的表达式作�?
-
 -- [[函数的定义]]
 -- Lua编程语言函数定义格式如下�?
 -- optional_function_scope function function_name(argument1,argument2,argument3...,argumentn)
@@ -30,7 +29,6 @@
 --     return result
 -- end
 -- print("两值比较最大值为",max(4,4))
-
 -- Lua中我们可以将函数做参数传递给函数
 -- myprint=function(param)
 --     print("这是打印函数-  ##",param,"##")
@@ -41,7 +39,6 @@
 -- end
 -- myprint(10)   --myprint 函数作为参数传�?
 -- add(2,5,myprint)
-
 --[[ 多返回�? ]]
 -- Lua函数可以返回多个结果值，比如string.find，其返回pi匹配串“开始和结束的下标”（如果批存在匹配串返回nil）�?
 -- s,e=string.find("www.runoob.com","runoob")
@@ -59,7 +56,6 @@
 --     return m,mi
 -- end
 -- print(maxinum({8,10,23,12,5}))
-
 --[[ 可变参数 ]]
 -- Lua函数可以接受可变数目的参数，和C语言类似，在函数参数列表中使用三�?...表示函数有可变参数�?
 -- function add(...)
@@ -70,7 +66,6 @@
 --     return s
 -- end
 -- print(add(3,4,5,6,7))
-
 -- 我们可以将可变参数赋值给一个变量�?
 -- 例如，我们计算几个数的平均值：
 -- function average(...)
@@ -83,7 +78,6 @@
 --     return result/#arg
 -- end
 -- print("平均值为�?",average(10,5,3,4,5,6,7,8,9,10))
-
 -- 我们也可以通过select("#",...)来获取可变参数的数量:
 -- function average(...)
 --     result=0
@@ -95,14 +89,12 @@
 --     return result/select("#",...)
 -- end
 -- print("平均值为",average(10,5,3,4,5,6))
-
 -- 有时候我们可能需要几个固定的参数加上可变参数，固定参数必须放在变长参数之前：
 -- function fwrite(fmt,...)    -->固定的参数fmt
 --     return io.write(string.format(fmt,...))
 -- end
 -- fwrite("runoob\n")         --->fmt="runoob",没有变长参数
 -- fwrite("%d%d\n", 1,2)      --->fmt="%d%d",变长参数�?1�?2
-
 -- 通常在遍历变长参数的时候只需要使用{...}，然而变长参数可以会包括一些nil，那么就可以�?
 -- select函数来访问变长参数了：select('#',...)或者select(n,...)
 --    select('n',...)返回可变参数的长�?
@@ -126,5 +118,3 @@
 --     end
 --     foo(1,2,3,4)
 -- end
-
-

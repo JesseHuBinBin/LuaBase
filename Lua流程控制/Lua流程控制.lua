@@ -3,11 +3,11 @@
 -- 代码，在条件为false时执行其他指定代码�?
 -- 控制结构的条件表达式结果可以是任何值，Lua认为false和nil为假，true和非nil为真�?
 -- 注意：Lua�?0为ture
---[[0为true]]--
+--[[0为true]]
+--
 -- if (0) then
 --     print("0为true")
 -- end
-
 -- Lua提供了一下控制结构的语句
 -- if语句        if语句是有一个布尔表达式作为条件判断，其后紧跟其它语句组�?
 -- if..else语句  if语句可以与else语句搭配使用，在if条件表达式为false时执行else语句代码

@@ -8,7 +8,7 @@
 -- 执行require后会返回一个有模块常量或者函数组成的table，并且还会定义一个包含改table的全局变量。
 
 print(package.path)
-package.path = "./Lua模块与包/?.lua;"..package.path
+package.path = "./Lua模块与包/?.lua;" .. package.path
 print(package.path)
 local m = require("module")
 print(m.constant)

@@ -5,16 +5,16 @@
 -- 要写成完全的泛型，那么v==a[i]改成一个比较函数的指针equal(v,a[i]):
 function removeRepeated(a)
     for k, v in pairs(a) do
-        for i=k+1,#a do
-            if v==a[i] then
+        for i = k + 1, #a do
+            if v == a[i] then
                 table.remove(a, i)
             end
         end
     end
 end
-local a={"a","d","c","g","d","w","c","a","g","s"}
+local a = {"a", "d", "c", "g", "d", "w", "c", "a", "g", "s"}
 removeRepeated(a)
 table.sort(a)
 for k, v in pairs(a) do
-    print(k,v)
+    print(k, v)
 end
